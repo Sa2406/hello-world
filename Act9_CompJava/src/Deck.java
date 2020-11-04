@@ -48,7 +48,12 @@ public class Deck {
     }
 
     //Retorna la cabeza de la lista
-    public String head(){
+    public String head() throws Exception{
+
+        if(baraja.size()==0){
+            throw new Exception("Deck Vacio");
+
+        }
 
         String aux;
 
@@ -61,7 +66,12 @@ public class Deck {
     }
 
     //Metodo pick random
-    public String pick(){
+    public String pick() throws Exception{
+
+        if(baraja.size()==0){
+            throw new Exception("Deck Vacio");
+
+        }
 
         int rand = new Random().nextInt(baraja.size());
 
@@ -76,7 +86,12 @@ public class Deck {
     }
 
     //Devuelve una mano random
-    public String[] hand(){
+    public String[] hand() throws Exception{
+
+        if(baraja.size()==0){
+            throw new Exception("Deck Vacio");
+
+        }
 
         int rand;
         String array[] = new String[5];

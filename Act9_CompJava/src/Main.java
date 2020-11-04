@@ -80,24 +80,49 @@ public class Main extends JFrame implements ActionListener {
 
         }else if (e.getSource().equals(head)){
 
+            try {
+                cartaMano.setText(deck.head());
+            }catch (Exception vacio){
 
-            cartaMano.setText(deck.head());
-            restantes.setText("Cartas Restantes: "+deck.getBarajaSize());
+                JOptionPane.showMessageDialog(null,vacio.getMessage(),"Vacio",JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
 
+            }finally {
+
+                restantes.setText("Cartas Restantes: " + deck.getBarajaSize());
+
+            }
 
         }else if(e.getSource().equals(azar)){
 
-            cartaMano.setText(deck.pick());
-            restantes.setText("Cartas Restantes: "+deck.getBarajaSize());
+            try {
+                cartaMano.setText(deck.pick());
+            }catch (Exception vacio){
 
+                JOptionPane.showMessageDialog(null,vacio.getMessage(),"Vacio",JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
+
+            }finally {
+
+                restantes.setText("Cartas Restantes: " + deck.getBarajaSize());
+
+            }
 
         }else {
 
-            List list = Arrays.asList(deck.hand());
 
-            cartaMano.setText(list.toString());
-            restantes.setText("Cartas Restantes: "+deck.getBarajaSize());
+            try {
+                List list = Arrays.asList(deck.hand());
+                cartaMano.setText(list.toString());
+            }catch (Exception vacio){
 
+                JOptionPane.showMessageDialog(null,vacio.getMessage(),"Vacio",JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
+
+            }finally {
+
+                restantes.setText("Cartas Restantes: " + deck.getBarajaSize());
+            }
         }
 
 
